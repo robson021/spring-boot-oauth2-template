@@ -1,0 +1,8 @@
+logging:
+  level:
+    robert: DEBUG
+    org.hibernate: WARN
+
+spring:
+  profiles:
+    active: dev
