@@ -9,7 +9,7 @@ public interface DbService {
 
 	void persistEntity(BaseEntity entity);
 
-	<T> List<T> getAllEntities(Class<T> clazz);
+	<T extends BaseEntity> List<T> getAllEntities(Class<T> clazz);
 
 	User findUserByEmail(String email);
 

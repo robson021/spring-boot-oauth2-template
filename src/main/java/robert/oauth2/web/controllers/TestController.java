@@ -16,6 +16,6 @@ public class TestController {
 
 	@GetMapping("/hello")
 	public String sayHello() {
-		return "Hello " + userDetailsProvider.getUserEmail() + " your id is: " + userDetailsProvider.getUserId();
+		return "Hello " + userDetailsProvider.getUserEmail() + " your id = " + userDetailsProvider.getUserId();
 	}
 }

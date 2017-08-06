@@ -35,7 +35,7 @@ public class DbServiceImpl implements DbService {
 	}
 
 	@Override
-	public <T> List<T> getAllEntities(Class<T> clazz) {
+	public <T extends BaseEntity> List<T> getAllEntities(Class<T> clazz) {
 		return em.createQuery("from " + clazz.getSimpleName(), clazz)
 				.getResultList();
 	}
