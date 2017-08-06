@@ -1,4 +1,4 @@
-package robert.oauth2jwt;
+package robert.oauth2;
 
 import java.util.stream.Stream;
 
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import robert.oauth2jwt.db.entities.Role;
-import robert.oauth2jwt.db.entities.User;
-import robert.oauth2jwt.db.svc.api.DbService;
+import robert.oauth2.db.entities.Role;
+import robert.oauth2.db.entities.User;
+import robert.oauth2.db.svc.api.DbService;
 
 @Component
 @Profile("dev")

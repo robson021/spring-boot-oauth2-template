@@ -1,9 +1,9 @@
-package robert.oauth2jwt.db.svc.api;
+package robert.oauth2.db.svc.api;
 
 import java.util.List;
 
-import robert.oauth2jwt.db.entities.BaseEntity;
-import robert.oauth2jwt.db.entities.User;
+import robert.oauth2.db.entities.BaseEntity;
+import robert.oauth2.db.entities.User;
 
 public interface DbService {
 

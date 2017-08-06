@@ -1,4 +1,4 @@
-package robert.oauth2jwt.db.entities;
+package robert.oauth2.db.entities;
 
 import java.util.Set;
 

@@ -1,9 +1,9 @@
-package robert.oauth2jwt.web.controllers;
+package robert.oauth2.web.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import robert.oauth2jwt.web.svc.api.UserDetailsProvider;
+import robert.oauth2.web.svc.api.UserDetailsProvider;
 
 @RestController
 public class TestController {

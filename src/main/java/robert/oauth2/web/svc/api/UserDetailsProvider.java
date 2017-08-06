@@ -1,6 +1,6 @@
-package robert.oauth2jwt.web.svc.api;
+package robert.oauth2.web.svc.api;
 
-import robert.oauth2jwt.web.config.security.userdetails.UserDetailsImpl;
+import robert.oauth2.web.config.security.userdetails.UserDetailsImpl;
 
 public interface UserDetailsProvider {
 

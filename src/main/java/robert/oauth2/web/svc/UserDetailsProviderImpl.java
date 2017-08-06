@@ -1,10 +1,10 @@
-package robert.oauth2jwt.web.svc;
+package robert.oauth2.web.svc;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import robert.oauth2jwt.web.config.security.userdetails.UserDetailsImpl;
-import robert.oauth2jwt.web.svc.api.UserDetailsProvider;
+import robert.oauth2.web.config.security.userdetails.UserDetailsImpl;
+import robert.oauth2.web.svc.api.UserDetailsProvider;
 
 @Service
 public class UserDetailsProviderImpl implements UserDetailsProvider {

@@ -1,4 +1,4 @@
-package robert.oauth2jwt;
+package robert.oauth2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EntityScan(basePackages = "robert.oauth2jwt.db.entities")
+@EntityScan(basePackages = "robert.oauth2.db.entities")
 @EnableTransactionManagement
 public class Oauth2JwtDemoApplication {
 

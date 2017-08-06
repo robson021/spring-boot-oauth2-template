@@ -1,4 +1,4 @@
-package robert.oauth2jwt.web.config.security.userdetails;
+package robert.oauth2.web.config.security.userdetails;
 
 import java.util.Collection;
 import java.util.Set;
@@ -9,7 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
-import robert.oauth2jwt.db.entities.User;
+import robert.oauth2.db.entities.User;
 
 public class UserDetailsImpl implements UserDetails {
 

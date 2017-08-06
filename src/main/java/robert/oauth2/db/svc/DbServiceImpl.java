@@ -1,4 +1,4 @@
-package robert.oauth2jwt.db.svc;
+package robert.oauth2.db.svc;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import robert.oauth2jwt.db.entities.BaseEntity;
-import robert.oauth2jwt.db.entities.Role;
-import robert.oauth2jwt.db.entities.User;
-import robert.oauth2jwt.db.svc.api.DbService;
+import robert.oauth2.db.entities.BaseEntity;
+import robert.oauth2.db.entities.Role;
+import robert.oauth2.db.entities.User;
+import robert.oauth2.db.svc.api.DbService;
 
 @Service
 @Transactional
