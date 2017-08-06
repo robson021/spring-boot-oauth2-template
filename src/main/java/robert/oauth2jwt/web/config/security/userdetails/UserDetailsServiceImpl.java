@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		User user = dbService.findUserByEmail(email);
 		UserDetailsImpl userDetails = new UserDetailsImpl(user);
 		if ( log.isDebugEnabled() ) {
-			log.debug("Generated details for: {}", userDetails);
+			log.debug("Loaded: {}", userDetails);
 		}
 		return userDetails;
 	}

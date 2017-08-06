@@ -30,7 +30,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 				.secret("secret")
 				.authorizedGrantTypes("client_credentials", "password")
 				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
-				.scopes("openid");
+				.scopes("openid")
+				.accessTokenValiditySeconds(3600); // 1 hour
 	}
 
 	@Override
