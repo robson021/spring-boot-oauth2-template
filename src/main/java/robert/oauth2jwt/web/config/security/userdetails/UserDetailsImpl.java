@@ -13,6 +13,8 @@ import robert.oauth2jwt.db.entities.User;
 
 public class UserDetailsImpl implements UserDetails {
 
+	private final long userId;
+
 	private final String username;
 
 	private final String password;
@@ -21,12 +23,17 @@ public class UserDetailsImpl implements UserDetails {
 
 	UserDetailsImpl(User user) {
 		Assert.notNull(user, "No user has been found");
+		this.userId = user.getId();
 		this.username = user.getEmail();
 		this.password = user.getPassword();
 		this.authorities = user.getRoles()
 				.stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName()))
 				.collect(Collectors.toSet());
+	}
+
+	public long getUserId() {
+		return userId;
 	}
 
 	@Override
@@ -62,10 +69,5 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "UserDetailsImpl{" + "username='" + username + '\'' + ", password='" + password + '\'' + ", authorities=" + authorities + '}';
 	}
 }

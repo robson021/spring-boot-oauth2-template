@@ -23,7 +23,6 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 		endpoints.authenticationManager(authenticationManager);
 	}
 
-
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
