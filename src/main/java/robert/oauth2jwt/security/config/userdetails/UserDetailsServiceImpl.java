@@ -6,26 +6,27 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 import robert.oauth2jwt.db.entities.User;
-import robert.oauth2jwt.db.repositories.UserRepository;
+import robert.oauth2jwt.db.svc.api.DbService;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private static final Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
-	private final UserRepository userRepository;
+	private final DbService dbService;
 
-	public UserDetailsServiceImpl(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public UserDetailsServiceImpl(DbService dbService) {
+		this.dbService = dbService;
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		if (log.isDebugEnabled()) {
-			log.debug("trying to get details for user '{}'", username);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		if ( log.isDebugEnabled() ) {
+			log.debug("trying to get details for user '{}'", email);
 		}
-		User user = userRepository.findByEmail(username);
+		User user = dbService.findUserByEmail(email);
 		return new UserDetailsImpl(user);
 	}
 }

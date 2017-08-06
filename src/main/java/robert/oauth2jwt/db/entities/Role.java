@@ -1,13 +1,16 @@
 package robert.oauth2jwt.db.entities;
 
-import javax.persistence.*;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+
 @Entity
-@Table
 public class Role extends BaseEntity {
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String name;
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")

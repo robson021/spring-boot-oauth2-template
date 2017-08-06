@@ -1,11 +1,17 @@
 package robert.oauth2jwt.db.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.Pattern;
+
 @Entity
-@Table
 public class User extends BaseEntity {
 
 	@Column(nullable = false)
