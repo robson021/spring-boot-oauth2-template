@@ -1,4 +1,4 @@
-package robert.oauth2jwt.security.config.userdetails;
+package robert.oauth2jwt.web.config.security.userdetails;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +23,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		if ( log.isDebugEnabled() ) {
-			log.debug("trying to get details for user '{}'", email);
-		}
 		User user = dbService.findUserByEmail(email);
-		return new UserDetailsImpl(user);
+		UserDetailsImpl userDetails = new UserDetailsImpl(user);
+		if ( log.isDebugEnabled() ) {
+			log.debug("Generated details for: {}", userDetails);
+		}
+		return userDetails;
 	}
 }

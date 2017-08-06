@@ -1,14 +1,15 @@
-package robert.oauth2jwt.security.config.userdetails;
+package robert.oauth2jwt.web.config.security.userdetails;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
-import robert.oauth2jwt.db.entities.User;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
+import robert.oauth2jwt.db.entities.User;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -22,7 +23,10 @@ public class UserDetailsImpl implements UserDetails {
 		Assert.notNull(user, "No user has been found");
 		this.username = user.getEmail();
 		this.password = user.getPassword();
-		this.authorities = Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+		this.authorities = user.getRoles()
+				.stream()
+				.map(role -> new SimpleGrantedAuthority(role.getName()))
+				.collect(Collectors.toSet());
 	}
 
 	@Override
@@ -58,5 +62,10 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetailsImpl{" + "username='" + username + '\'' + ", password='" + password + '\'' + ", authorities=" + authorities + '}';
 	}
 }
