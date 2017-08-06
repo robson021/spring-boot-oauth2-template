@@ -50,7 +50,7 @@ public class DevSettings {
 		User user = new User();
 		user.setName("John");
 		user.setSurname("Doe");
-		user.setEmail("test@t.pl");
+		user.setEmail("user@t.pl");
 		user.setPassword(encoder.encode("password"));
 
 		User admin = new User();
