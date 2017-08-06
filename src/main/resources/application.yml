@@ -2,6 +2,7 @@ logging:
   level:
     robert: DEBUG
     org.hibernate: WARN
+    org.springframework: ERROR
 
 spring:
   profiles:
