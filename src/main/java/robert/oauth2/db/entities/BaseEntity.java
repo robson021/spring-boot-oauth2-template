@@ -1,19 +1,20 @@
 package robert.oauth2.db.entities;
 
-import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.UUID;
 
 @MappedSuperclass
 public class BaseEntity {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+    @Column(name = "ID")
+    private Long id;
 
 	@JsonIgnore
 	private String uuid = UUID.randomUUID()
