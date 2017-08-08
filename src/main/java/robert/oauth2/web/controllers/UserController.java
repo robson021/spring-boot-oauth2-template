@@ -1,20 +1,37 @@
 package robert.oauth2.web.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import robert.oauth2.db.entities.User;
+import robert.oauth2.db.svc.api.DbService;
 import robert.oauth2.web.svc.api.UserDetailsProvider;
 
 @RestController
 public class UserController {
 
-	private final UserDetailsProvider userDetailsProvider;
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
-	public UserController(UserDetailsProvider userDetailsProvider) {
-		this.userDetailsProvider = userDetailsProvider;
-	}
+    private final UserDetailsProvider userDetailsProvider;
 
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Hello " + userDetailsProvider.getUserEmail() + " your id = " + userDetailsProvider.getUserId();
-	}
+    private final DbService dbService;
+
+    public UserController(UserDetailsProvider userDetailsProvider, DbService dbService) {
+        this.userDetailsProvider = userDetailsProvider;
+        this.dbService = dbService;
+    }
+
+    @GetMapping("/hello")
+    public String sayHello() {
+        log.debug("Hello request");
+        return "Hello " + userDetailsProvider.getUserEmail() + " your id = " + userDetailsProvider.getUserId();
+    }
+
+    @PostMapping("/register")
+    @ResponseStatus(HttpStatus.OK)
+    public void registerNewUser(@RequestBody User user) {
+        log.debug("Register new user request");
+        dbService.registerNewUser(user);
+    }
 }
