@@ -1,15 +1,14 @@
-package robert.oauth2.web.config.security.userdetails;
-
-import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
+package robert.oauth2.web.security.userdetails;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
-
 import robert.oauth2.db.entities.User;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
 

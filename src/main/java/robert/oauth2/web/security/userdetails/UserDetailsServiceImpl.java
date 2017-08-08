@@ -1,4 +1,4 @@
-package robert.oauth2.web.config.security.userdetails;
+package robert.oauth2.web.security.userdetails;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import robert.oauth2.db.entities.User;
 import robert.oauth2.db.svc.api.DbService;
 

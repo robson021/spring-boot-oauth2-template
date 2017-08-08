@@ -1,4 +1,4 @@
-package robert.oauth2.web.config.security.oauth2;
+package robert.oauth2.web.security.oauth2;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
