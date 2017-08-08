@@ -3,7 +3,7 @@ logging:
     robert: DEBUG
     org.hibernate: WARN
     org.springframework: ERROR
-
+    org.springframework.boot.context.embedded: INFO
 spring:
   profiles:
     active: dev
