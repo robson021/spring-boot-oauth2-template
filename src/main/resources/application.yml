@@ -1,9 +1,17 @@
 logging:
   level:
-    robert: DEBUG
-    org.hibernate: WARN
-    org.springframework: ERROR
-    org.springframework.boot.context.embedded: INFO
+    robert: debug
+    org.hibernate: warn
+    org.springframework: error
+    org.springframework.boot.context.embedded: info
+
 spring:
   profiles:
     active: dev
+  datasource:
+    dbcp2:
+      max-total: 4
+
+server:
+  undertow:
+    worker-threads: 4
