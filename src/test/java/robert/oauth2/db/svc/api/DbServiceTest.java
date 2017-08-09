@@ -2,6 +2,7 @@ package robert.oauth2.db.svc.api;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -64,13 +65,14 @@ public class DbServiceTest extends SpringTest {
 
 		Long userId = dbService.findUserByEmail(user.getEmail())
 				.getId();
+
 		dbService.grantAllAuthoritiesToUser(userId);
 
 		user = dbService.findUserByEmail(user.getEmail());
 
-		user.getRoles()
-				.forEach(role -> Assertions.assertThat(roles)
-						.contains(role));
+		Set<Role> userRoles = user.getRoles();
+		userRoles.forEach(role -> Assertions.assertThat(roles)
+				.contains(role));
 	}
 
 	@Test
@@ -92,9 +94,8 @@ public class DbServiceTest extends SpringTest {
 				.size())
 				.isEqualTo(1);
 
-		Assertions.assertThat(user.getRoles()
-				.contains(role))
-				.isTrue();
+		Assertions.assertThat(user.getRoles())
+				.containsExactly(role);
 	}
 
 	private List<Role> generateRoles() {
