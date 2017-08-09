@@ -1,14 +1,14 @@
 package robert.oauth2.web.security.userdetails;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
-import robert.oauth2.db.entities.User;
 
-import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
+import robert.oauth2.db.entities.User;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -18,7 +18,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	private final String password;
 
-	private final Set<? extends GrantedAuthority> authorities;
+	private final Collection<? extends GrantedAuthority> authorities;
 
 	UserDetailsImpl(User user) {
 		Assert.notNull(user, "No user has been found");
@@ -28,7 +28,7 @@ public class UserDetailsImpl implements UserDetails {
 		this.authorities = user.getRoles()
 				.stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName()))
-				.collect(Collectors.toSet());
+				.collect(Collectors.toList());
 	}
 
 	public long getUserId() {
