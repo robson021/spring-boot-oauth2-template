@@ -67,6 +67,10 @@ public class DbServiceImpl implements DbService {
         User user = em.getReference(User.class, userId);
         user.getRoles()
                 .addAll(getAllRoles());
+
+        if (log.isDebugEnabled()) {
+            log.debug("Granted all authorities to user {}", user.getEmail());
+        }
     }
 
     @Override
@@ -74,6 +78,10 @@ public class DbServiceImpl implements DbService {
         User user = em.getReference(User.class, userId);
         user.getRoles()
                 .add(getRoleByName(roleName));
+
+        if (log.isDebugEnabled()) {
+            log.debug("Granted authority {} to user {}", roleName, user.getEmail());
+        }
     }
 
     private List<Role> getAllRoles() {
