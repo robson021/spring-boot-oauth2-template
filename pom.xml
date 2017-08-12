@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>oauth2-demo</name>
-	<description>Example project of Oauth2 with JWT</description>
+	<description>Example project of Oauth2</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
